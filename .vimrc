@@ -1,5 +1,5 @@
-se tabstop=2
-se shiftwidth=2
+se tabstop=4
+se shiftwidth=4
 se expandtab
 se incsearch
 se hlsearch
