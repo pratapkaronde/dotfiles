@@ -1,15 +1,16 @@
+se nocp                 " Disable compatiblity with vi. Helps with cursor navigation
 se tabstop=4
 se shiftwidth=4
 se expandtab
-se incsearch
-se hlsearch
-syn on
-colorscheme delek
-se smartindent
-se number
-se hls
-se is 
-se wildmenu 
+se incsearch            " incremental search 
+se hlsearch             " highlight search
+syn on                  " Syntax highlght 
+colorscheme darkblue    " 
+se cindent              " C Style indentation
+se number               " show line numbering 
+se is                   " 
+se wildmenu             " wild-menu with command line completion 
+
 " STATUS LINE ------------------------------------------------------------ {{{
 
 " Clear status line when vimrc is reloaded.
