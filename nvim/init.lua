@@ -80,13 +80,14 @@ require("lazy").setup("plugins", {
     },
 })
 
--- Basic Neovim settings
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.opt.smartindent = true -- smartly indent new line 
-vim.opt.hlsearch = true -- highlight search results
-vim.opt.incsearch = true -- highlight as the user types 
-
+vim.cmd("set relativenumber")
+vim.cmd("set expandtab")
+vim.cmd("set shiftwidth=4")
+vim.cmd("set tabstop=4")
+vim.cmd("set smartindent")
+vim.cmd("set hlsearch")
+vim.cmd("set incsearch")
+vim.diagnostic.enable = true
+vim.diagnostic.config({
+    virtual_lines = true,
+})

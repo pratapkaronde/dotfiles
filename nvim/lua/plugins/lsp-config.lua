@@ -15,7 +15,11 @@ return {
         },
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "rust_analyzer", "html", "clangd", "gopls", "pyright", "ruff", "pylyzer", "java_language_server", "jsonls", "lemminx" },
+                ensure_installed = {
+                    "lua_ls", "rust_analyzer", "html",
+                    "clangd", "gopls", "pyright", "ruff", "pylyzer",
+                    "java_language_server", "jsonls", "lemminx"
+                },
             })
         end,
     },
