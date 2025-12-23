@@ -87,7 +87,14 @@ vim.cmd("set tabstop=4")
 vim.cmd("set smartindent")
 vim.cmd("set hlsearch")
 vim.cmd("set incsearch")
+
+--- Enable Diagnostic Message display
 vim.diagnostic.enable = true
 vim.diagnostic.config({
-    virtual_lines = true,
+    --- virtual_lines = true,
+    virtual_text = true, --- show inline message
+    signs = true,        --- show signs in the gutter
+    underline = true,    --- undlerline problematic text
+    update_in_insert = false, --- don't update diagnostic when inserting
+    severity_sort = true,--- sort messages by severity
 })
