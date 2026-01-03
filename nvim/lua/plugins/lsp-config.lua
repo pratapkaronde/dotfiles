@@ -34,6 +34,9 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			-- The nvim-cmp almost supports LSP's capabilities so You should advertise it to LSP servers..
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 			--- Enable Language Servers
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("clangd")
@@ -44,6 +47,30 @@ return {
 			vim.lsp.enable("jsonls")
 			vim.lsp.enable("lemminx")
 
+			vim.lsp.config("lua_ls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("clangd", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("rust_analyzer", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("html", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("gopls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("java_language_server", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("jsonls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("lemminx", {
+				capabilities = capabilities,
+			})
 			-- Configure Key mappings
 
 			-- Confiugre key for hover help
