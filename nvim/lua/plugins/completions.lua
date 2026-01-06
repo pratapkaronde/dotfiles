@@ -1,6 +1,16 @@
 return {
 	{
+		"github/copilot.vim",
+        -- config = function()
+        --     vim.g.copilot_no_tab_map = true
+        --     vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+        -- end,
+	},
+	{
 		"hrsh7th/cmp-nvim-lsp",
+	},
+	{
+		"hrsh7th/cmp-buffer",
 	},
 	{
 		"L3MON4D3/LuaSnip",
@@ -25,8 +35,14 @@ return {
 					end,
 				},
 				window = {
-					completion = cmp.config.window.bordered(),
-					documentation = cmp.config.window.bordered(),
+					completion = cmp.config.window.bordered({
+						border = "rounded",
+						winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+					}),
+					documentation = cmp.config.window.bordered({
+						border = "rounded",
+						winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
+					}),
 				},
 				mapping = cmp.mapping.preset.insert({
 					["<C-b>"] = cmp.mapping.scroll_docs(-4),

@@ -11,7 +11,9 @@ if not vim.loop.fs_stat(lazypath) then
 	})
 end
 
-vim.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath) -- add lazy.nvim to runtime path
+vim.opt.termguicolors = true -- enable true color support
+vim.opt.background = "dark" -- set background to dark mode by default
 
 require("lazy").setup("plugins", {
 	-- Your current options
