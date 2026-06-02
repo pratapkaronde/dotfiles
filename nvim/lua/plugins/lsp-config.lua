@@ -79,6 +79,14 @@ return {
 			})
 			vim.lsp.config("ruff", {
 				capabilities = capabilities,
+				init_options = {
+					settings = {
+						lint = {
+							enable = true,
+							select = { "E", "W", "F", "I" },
+						},
+					},
+				},
 			})
 			-- vim.lsp.config("java_language_server", {
 			-- 	capabilities = capabilities,
