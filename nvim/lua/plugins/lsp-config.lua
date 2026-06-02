@@ -97,6 +97,19 @@ return {
 			vim.lsp.config("lemminx", {
 				capabilities = capabilities,
 			})
+
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*.py",
+				callback = function()
+					vim.lsp.buf.code_action({
+						context = {
+							only = { "source.organizeImports.ruff", "source.fixAll.ruff" },
+						},
+						apply = true,
+					})
+					vim.lsp.buf.format({ async = false })
+				end,
+			})
 			-- Configure Key mappings
 
 			-- Confiugre key for hover help
