@@ -23,7 +23,6 @@ return {
 					"gopls",
 					"pyright",
 					"ruff",
-					"pylyzer",
 					"java_language_server",
 					"jsonls",
 					"lemminx",
@@ -48,14 +47,14 @@ return {
 			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 			vim.diagnostic.config({ float = { border = "rounded" } })
 
-
-
 			--- Enable Language Servers
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("clangd")
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("html")
 			vim.lsp.enable("gopls")
+			vim.lsp.enable("pyright")
+			vim.lsp.enable("ruff")
 			vim.lsp.enable("java_language_server")
 			vim.lsp.enable("jsonls")
 			vim.lsp.enable("lemminx")
@@ -73,6 +72,12 @@ return {
 				capabilities = capabilities,
 			})
 			vim.lsp.config("gopls", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("pyright", {
+				capabilities = capabilities,
+			})
+			vim.lsp.config("ruff", {
 				capabilities = capabilities,
 			})
 			vim.lsp.config("java_language_server", {
