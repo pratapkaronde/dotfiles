@@ -23,7 +23,7 @@ return {
 					"gopls",
 					"pyright",
 					"ruff",
-					"java_language_server",
+					-- "java_language_server",
 					"jsonls",
 					"lemminx",
 				},
@@ -55,7 +55,7 @@ return {
 			vim.lsp.enable("gopls")
 			vim.lsp.enable("pyright")
 			vim.lsp.enable("ruff")
-			vim.lsp.enable("java_language_server")
+			-- vim.lsp.enable("java_language_server")
 			vim.lsp.enable("jsonls")
 			vim.lsp.enable("lemminx")
 
@@ -80,9 +80,9 @@ return {
 			vim.lsp.config("ruff", {
 				capabilities = capabilities,
 			})
-			vim.lsp.config("java_language_server", {
-				capabilities = capabilities,
-			})
+			-- vim.lsp.config("java_language_server", {
+			-- 	capabilities = capabilities,
+			-- })
 			vim.lsp.config("jsonls", {
 				capabilities = capabilities,
 			})
