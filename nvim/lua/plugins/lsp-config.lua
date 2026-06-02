@@ -81,7 +81,7 @@ return {
 					settings = {
 						lint = {
 							enable = true,
-							select = { "E", "W", "F", "I" },
+							select = { "E", "W", "F", "I", "D" },
 						},
 					},
 				},
