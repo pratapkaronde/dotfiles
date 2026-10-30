@@ -1,20 +1,18 @@
 return {
 	{
 		"mason-org/mason.nvim",
+		build = ":MasonUpdate",
 		opts = {},
-		config = function()
-			require("mason").setup()
-		end,
 	},
 	{
 		"mason-org/mason-lspconfig.nvim",
-		opts = {},
 		dependencies = {
-			{ "mason-org/mason.nvim", opts = {} },
+			"mason-org/mason.nvim",
 			"neovim/nvim-lspconfig",
 		},
 		config = function()
 			require("mason-lspconfig").setup({
+				automatic_enable = false,
 				ensure_installed = {
 					"lua_ls",
 					"rust_analyzer",
@@ -44,18 +42,6 @@ return {
 			end
 
 			vim.diagnostic.config({ float = { border = "rounded" } })
-
-			--- Enable Language Servers
-			vim.lsp.enable("lua_ls")
-			vim.lsp.enable("clangd")
-			vim.lsp.enable("rust_analyzer")
-			vim.lsp.enable("html")
-			vim.lsp.enable("gopls")
-			vim.lsp.enable("pyright")
-			vim.lsp.enable("ruff")
-			-- vim.lsp.enable("java_language_server")
-			vim.lsp.enable("jsonls")
-			vim.lsp.enable("lemminx")
 
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
@@ -96,6 +82,18 @@ return {
 				capabilities = capabilities,
 			})
 
+			vim.lsp.enable({
+				"lua_ls",
+				"clangd",
+				"rust_analyzer",
+				"html",
+				"gopls",
+				"pyright",
+				"ruff",
+				"jsonls",
+				"lemminx",
+			})
+
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				pattern = "*.py",
 				callback = function()
@@ -105,7 +103,12 @@ return {
 						},
 						apply = true,
 					})
-					vim.lsp.buf.format({ async = false })
+					vim.lsp.buf.format({
+						async = false,
+						filter = function(client)
+							return client.name == "ruff"
+						end,
+					})
 				end,
 			})
 			-- Configure Key mappings
