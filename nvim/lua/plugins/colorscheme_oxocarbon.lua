@@ -3,6 +3,7 @@ return {
 	name = "oxocarbon",
 	lazy = false,
 	priority = 1000,
+	build = false, 
 	config = function()
 		vim.cmd("colorscheme oxocarbon")
 
